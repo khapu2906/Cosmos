@@ -1,6 +1,6 @@
 {
   "name": "@khapu2906/cosmos",
-  "version": "0.0.1-dev",
+  "version": "0.0.2-dev",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -45,7 +45,7 @@
     "bamimi"
   ],
   "bugs": {
-    "url": "https://github.com/khapu2906/bamimi-auth/issues"
+    "url": "https://github.com/khapu2906/cosmos/issues"
   },
-  "homepage": "https://github.com/khapu2906/bamimi-auth#readme"
+  "homepage": "https://github.com/khapu2906/cosmos#readme"
 }
