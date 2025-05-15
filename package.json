@@ -30,5 +30,10 @@
     "typedoc-material-theme": "^1.4.0",
     "typedoc-plugin-markdown": "^4.6.3",
     "typescript": "^5.6.2"
+  },
+  "author": {
+    "email": "daikhanh9260@gmail.com",
+    "name": "Kent Phung",
+    "url": "https://kentphung.online/en"
   }
 }
