@@ -1,0 +1,63 @@
+<h1> <span style="color:black;">About</span> <span style="color:gray;">Cosmos</span></h1>
+
+
+This package was developed to provide a simple and flexible Inversion of Control (IoC) container for TypeScript projects.
+
+---
+
+## Install
+```bash
+npm install Cosmos
+#or
+yarn add Cosmos
+```
+
+## Usage
+
+### Importing Modules
+
+```javascript
+const { Container } = require("cosmos");
+```
+
+### Initializing the Container
+
+To initialize the container, create an instance of the Container class:
+
+```javascript
+const container = new Container();
+```
+
+### Binding Services
+
+You can bind services to the container using the `bind` method:
+
+```javascript
+container.bind('myService', () => new MyService());
+```
+
+### Resolving Services
+
+You can resolve services from the container using the `get` method:
+
+```javascript
+const myService = container.get('myService');
+```
+
+## Author
+* [Kent Phung](https://github.com/khapu2906)
+  
+
+## More
+* [Main](https://github.com/khapu2906/Cosmos/blob/master/docs/MAIN.md)
+  
+## Modules
+
+- [Application](docs/Application/README.md)
+- [Container](docs/Container/README.md)
+- [CosmosJS](docs/CosmosJS/README.md)
+- [ServiceProvider](docs/ServiceProvider/README.md)
+
+## License
+
+IoC is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
