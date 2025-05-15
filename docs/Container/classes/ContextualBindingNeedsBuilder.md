@@ -6,7 +6,7 @@
 
 # Class: ContextualBindingNeedsBuilder
 
-Defined in: Container.ts:480
+Defined in: Container.ts:481
 
 The `ContextualBindingNeedsBuilder` class is a helper class used to define the
 implementation for a contextual binding.
@@ -17,7 +17,7 @@ implementation for a contextual binding.
 
 > **new ContextualBindingNeedsBuilder**(`container`, `concrete`, `abstract`): `ContextualBindingNeedsBuilder`
 
-Defined in: Container.ts:489
+Defined in: Container.ts:490
 
 Creates a new `ContextualBindingNeedsBuilder` instance.
 
@@ -51,7 +51,7 @@ The abstract identifier (usually a string or symbol) that you want to
 
 > **give**(`implementation`): `void`
 
-Defined in: Container.ts:504
+Defined in: Container.ts:505
 
 Specifies the implementation (a constructor or a service factory function) that
 should be used when resolving the abstract identifier in the specified context.

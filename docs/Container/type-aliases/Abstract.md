@@ -8,7 +8,7 @@
 
 > **Abstract**\<`T`\> = `string` \| `symbol` \| [`Constructor`](Constructor.md)\<`T`\>
 
-Defined in: Container.ts:4
+Defined in: Container.ts:5
 
 ## Type Parameters
 

@@ -8,7 +8,7 @@
 
 > **ServiceFactory**\<`T`\> = (...`args`) => `T`
 
-Defined in: Container.ts:3
+Defined in: Container.ts:4
 
 ## Type Parameters
 

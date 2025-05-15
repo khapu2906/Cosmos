@@ -8,7 +8,7 @@
 
 > **Constructor**\<`T`\> = (...`args`) => `T`
 
-Defined in: Container.ts:2
+Defined in: Container.ts:3
 
 ## Type Parameters
 

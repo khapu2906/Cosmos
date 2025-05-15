@@ -1,4 +1,5 @@
 /// <reference types="reflect-metadata" />
+import "reflect-metadata"
 export type Constructor<T = any> = new (...args: any[]) => T;
 export type ServiceFactory<T = any> = (...args: any[]) => T;
 export type Abstract<T = any> = string | symbol | Constructor<T>;

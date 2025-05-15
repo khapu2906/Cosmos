@@ -36,7 +36,7 @@ lifecycle hooks for running code before and after the application is booted.
 
 > **addContextualBinding**(`concrete`, `abstract`, `implementation`): `void`
 
-Defined in: Container.ts:175
+Defined in: Container.ts:176
 
 Adds a contextual binding to the container.  This method is called by the
 `ContextualBindingBuilder` to register the binding.
@@ -81,7 +81,7 @@ void
 
 > **alias**(`abstract`, `alias`): `void`
 
-Defined in: Container.ts:127
+Defined in: Container.ts:128
 
 Registers an alias for an abstract identifier. This allows you to refer to the same
 dependency using multiple names.
@@ -122,7 +122,7 @@ container.alias('my_service', 'myService');
 
 > **bind**\<`T`\>(`abstract`, `concrete`, `shared`): `void`
 
-Defined in: Container.ts:62
+Defined in: Container.ts:63
 
 Binds an abstract identifier to a concrete implementation or a service factory.
 This method allows you to define how an abstract dependency should be resolved.
@@ -253,7 +253,7 @@ void
 
 > **flush**(): `void`
 
-Defined in: Container.ts:436
+Defined in: Container.ts:437
 
 Clears all bindings, instances, and aliases from the container.  This effectively
 resets the container to its initial state.
@@ -280,7 +280,7 @@ container.flush(); // Clears the container
 
 > **getAlias**(`abstract`): [`Abstract`](../../Container/type-aliases/Abstract.md)
 
-Defined in: Container.ts:268
+Defined in: Container.ts:269
 
 Resolves an alias to its original abstract identifier.  If the given identifier is not
 an alias, it is returned as is.  This method recursively resolves aliases until it
@@ -317,7 +317,7 @@ container.getAlias('my_service'); // Returns 'myService'
 
 > **getContextualConcrete**(`abstract`, `concrete`): `null` \| [`Abstract`](../../Container/type-aliases/Abstract.md)\<`any`\>
 
-Defined in: Container.ts:192
+Defined in: Container.ts:193
 
 Retrieves the concrete implementation for an abstract identifier in a specific context.
 
@@ -354,7 +354,7 @@ The concrete implementation for the abstract identifier in the specified context
 
 > **has**(`abstract`): `boolean`
 
-Defined in: Container.ts:211
+Defined in: Container.ts:212
 
 Determines whether an abstract identifier has been registered with the container.
 This includes bindings, instances, and aliases.
@@ -389,7 +389,7 @@ container.has('myService'); // Returns true or false
 
 > **instance**\<`T`\>(`abstract`, `instance`): `void`
 
-Defined in: Container.ts:110
+Defined in: Container.ts:111
 
 Registers an existing instance with the container, associating it with an abstract identifier.
 This is useful when you have an instance that you want to be managed by the container but
@@ -458,7 +458,7 @@ Whether the application has been booted.
 
 > **isShared**(`abstract`): `boolean`
 
-Defined in: Container.ts:240
+Defined in: Container.ts:241
 
 Determines whether an abstract identifier is bound as a singleton.
 
@@ -492,7 +492,7 @@ container.isShared('myService'); // Returns true or false
 
 > **make**\<`T`\>(`abstract`, `parameters`, `resolving`): `T`
 
-Defined in: Container.ts:291
+Defined in: Container.ts:292
 
 Resolves an abstract identifier from the container, creating an instance of the
 corresponding concrete implementation or retrieving an existing instance.
@@ -600,7 +600,7 @@ The registered service provider instance.
 
 > **singleton**\<`T`\>(`abstract`, `concrete`): `void`
 
-Defined in: Container.ts:90
+Defined in: Container.ts:91
 
 Binds an abstract identifier to a concrete implementation as a singleton. This means
 that the container will only create one instance of the concrete implementation, and
@@ -655,7 +655,7 @@ container.singleton<MyService>('myService', MyService);
 
 > **when**(`concrete`): [`ContextualBindingBuilder`](../../Container/classes/ContextualBindingBuilder.md)
 
-Defined in: Container.ts:158
+Defined in: Container.ts:159
 
 Begins the definition of a contextual binding.  Contextual bindings allow you to
 specify different implementations for an abstract identifier based on the context

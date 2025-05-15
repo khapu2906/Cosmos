@@ -1,6 +1,6 @@
 {
   "name": "@khapu2906/cosmos",
-  "version": "0.0.3-dev",
+  "version": "0.0.4-dev",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

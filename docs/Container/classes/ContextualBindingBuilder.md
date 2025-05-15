@@ -6,7 +6,7 @@
 
 # Class: ContextualBindingBuilder
 
-Defined in: Container.ts:449
+Defined in: Container.ts:450
 
 The `ContextualBindingBuilder` class is a helper class used to define contextual bindings
 within the container.  It allows you to specify different implementations for an abstract
@@ -18,7 +18,7 @@ identifier based on the context in which it is being resolved.
 
 > **new ContextualBindingBuilder**(`container`, `concrete`): `ContextualBindingBuilder`
 
-Defined in: Container.ts:457
+Defined in: Container.ts:458
 
 Creates a new `ContextualBindingBuilder` instance.
 
@@ -47,7 +47,7 @@ The concrete identifier that represents the context in which the
 
 > **needs**(`abstract`): [`ContextualBindingNeedsBuilder`](ContextualBindingNeedsBuilder.md)
 
-Defined in: Container.ts:471
+Defined in: Container.ts:472
 
 Specifies the abstract identifier that you want to bind a different implementation
 for in the specified context.
