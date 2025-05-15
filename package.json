@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.0.1",
+  "version": "0.0.1-dev",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -35,5 +35,17 @@
     "email": "daikhanh9260@gmail.com",
     "name": "Kent Phung",
     "url": "https://kentphung.online/en"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khapu2906/cosmos.git"
+  },
+  "keywords": [
+    "auth",
+    "bamimi"
+  ],
+  "bugs": {
+    "url": "https://github.com/khapu2906/bamimi-auth/issues"
+  },
+  "homepage": "https://github.com/khapu2906/bamimi-auth#readme"
 }

@@ -1,5 +1,9 @@
 <h1> <span style="color:black;">About</span> <span style="color:gray;">Cosmos</span></h1>
-
+<p align="center">
+	<a href="https://github.com/khapu2906/cosmos/actions/workflows/unit-test.yml" alt="github">
+		<img src="https://github.com/khapu2906/cosmos/actions/workflows/unit-test.yml/badge.svg" alt="Github " />
+	</a>
+</p>
 
 This package was developed to provide a simple and flexible Inversion of Control (IoC) container for TypeScript projects.
 
@@ -7,24 +11,24 @@ This package was developed to provide a simple and flexible Inversion of Control
 
 ## Install
 ```bash
-npm install Cosmos
+npm install cosmos
 #or
-yarn add Cosmos
+yarn add cosmos
 ```
 
 ## Usage
 
 ### Importing Modules
 
-```javascript
-const { Container } = require("cosmos");
+```typescript
+import { Container } from "cosmos";
 ```
 
 ### Initializing the Container
 
 To initialize the container, create an instance of the Container class:
 
-```javascript
+```typescript
 const container = new Container();
 ```
 
