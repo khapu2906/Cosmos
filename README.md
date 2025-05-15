@@ -11,9 +11,9 @@ This package was developed to provide a simple and flexible Inversion of Control
 
 ## Install
 ```bash
-npm install cosmos
+npm install @khapu2906/cosmos
 #or
-yarn add cosmos
+yarn add @khapu2906/cosmos
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ yarn add cosmos
 ### Importing Modules
 
 ```typescript
-import { Container } from "cosmos";
+import { Container } from "@khapu2906/cosmos";
 ```
 
 ### Initializing the Container

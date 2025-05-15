@@ -1,5 +1,5 @@
 {
-  "name": "cosmos",
+  "name": "@khapu2906/cosmos",
   "version": "0.0.1-dev",
   "license": "MIT",
   "main": "dist/cjs/index.js",
