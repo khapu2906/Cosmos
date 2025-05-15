@@ -1,12 +1,12 @@
-[**cosmos**](../../README.md)
+[**@khapu2906/cosmos**](../../README.md)
 
 ***
 
-[cosmos](../../modules.md) / [Container](../README.md) / ContextualBindingNeedsBuilder
+[@khapu2906/cosmos](../../modules.md) / [Container](../README.md) / ContextualBindingNeedsBuilder
 
 # Class: ContextualBindingNeedsBuilder
 
-Defined in: Container.ts:431
+Defined in: Container.ts:480
 
 The `ContextualBindingNeedsBuilder` class is a helper class used to define the
 implementation for a contextual binding.
@@ -17,7 +17,7 @@ implementation for a contextual binding.
 
 > **new ContextualBindingNeedsBuilder**(`container`, `concrete`, `abstract`): `ContextualBindingNeedsBuilder`
 
-Defined in: Container.ts:441
+Defined in: Container.ts:489
 
 Creates a new `ContextualBindingNeedsBuilder` instance.
 
@@ -27,18 +27,16 @@ Creates a new `ContextualBindingNeedsBuilder` instance.
 
 [`Container`](Container.md)
 
-The dependency injection container.
-
-##### concrete
-
-`string`
-
 The concrete identifier that represents the context in which the
                 binding should be applied.
 
+##### concrete
+
+[`Abstract`](../type-aliases/Abstract.md)
+
 ##### abstract
 
-`string`
+[`Abstract`](../type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to
                 bind a different implementation for in the specified context.
@@ -53,7 +51,7 @@ The abstract identifier (usually a string or symbol) that you want to
 
 > **give**(`implementation`): `void`
 
-Defined in: Container.ts:456
+Defined in: Container.ts:504
 
 Specifies the implementation (a constructor or a service factory function) that
 should be used when resolving the abstract identifier in the specified context.
@@ -62,7 +60,7 @@ should be used when resolving the abstract identifier in the specified context.
 
 ##### implementation
 
-`string`
+[`Abstract`](../type-aliases/Abstract.md)
 
 The implementation (a constructor or a service factory function)
                      that should be used when resolving the abstract identifier in the

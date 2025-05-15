@@ -1,6 +1,6 @@
 {
   "name": "@khapu2906/cosmos",
-  "version": "0.0.2-dev",
+  "version": "0.0.3-dev",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -29,7 +29,7 @@
     "typedoc-github-wiki-theme": "^2.1.0",
     "typedoc-material-theme": "^1.4.0",
     "typedoc-plugin-markdown": "^4.6.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.8.3"
   },
   "author": {
     "email": "daikhanh9260@gmail.com",
@@ -47,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/khapu2906/cosmos/issues"
   },
-  "homepage": "https://github.com/khapu2906/cosmos#readme"
+  "homepage": "https://github.com/khapu2906/cosmos#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.2.2"
+  }
 }

@@ -1,8 +1,8 @@
-[**cosmos**](../../README.md)
+[**@khapu2906/cosmos**](../../README.md)
 
 ***
 
-[cosmos](../../modules.md) / [ServiceProvider](../README.md) / ServiceProvider
+[@khapu2906/cosmos](../../modules.md) / [ServiceProvider](../README.md) / ServiceProvider
 
 # Class: `abstract` ServiceProvider
 

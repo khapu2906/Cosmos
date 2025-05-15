@@ -1,13 +1,13 @@
-**cosmos**
+**@khapu2906/cosmos**
 
 ***
 
-<p align="center">
-  <img width="250" src="https://github.com/knfs-jsc/IoC/blob/master/docs/images/logo-background.png?raw=true">
-  <br>
-</p>
-
 <h1> <span style="color:black;">About</span> <span style="color:gray;">Cosmos</span></h1>
+<p align="center">
+	<a href="https://github.com/khapu2906/cosmos/actions/workflows/unit-test.yml" alt="github">
+		<img src="https://github.com/khapu2906/cosmos/actions/workflows/unit-test.yml/badge.svg" alt="Github " />
+	</a>
+</p>
 
 This package was developed to provide a simple and flexible Inversion of Control (IoC) container for TypeScript projects.
 
@@ -15,24 +15,24 @@ This package was developed to provide a simple and flexible Inversion of Control
 
 ## Install
 ```bash
-npm install Cosmos
+npm install @khapu2906/cosmos
 #or
-yarn add Cosmos
+yarn add @khapu2906/cosmos
 ```
 
 ## Usage
 
 ### Importing Modules
 
-```javascript
-const { Container } = require("cosmos");
+```typescript
+import { Container } from "@khapu2906/cosmos";
 ```
 
 ### Initializing the Container
 
 To initialize the container, create an instance of the Container class:
 
-```javascript
+```typescript
 const container = new Container();
 ```
 
@@ -57,8 +57,15 @@ const myService = container.get('myService');
   
 
 ## More
-* [Main](https://github.com/knfs-jsc/IoC/blob/master/docs/MAIN.md)
+* [Main](https://github.com/khapu2906/Cosmos/blob/master/docs/MAIN.md)
   
+## Modules
+
+- [Application](_media/README.md)
+- [Container](_media/README-1.md)
+- [CosmosJS](_media/README-2.md)
+- [ServiceProvider](_media/README-3.md)
+
 ## License
 
 IoC is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

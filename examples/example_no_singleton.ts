@@ -36,6 +36,7 @@ class UserService {
 	}
 }
 
+//payment
 interface PaymentGateway {
 	processPayment(amount: number): void;
 }
@@ -67,8 +68,8 @@ class LogServiceProvider extends ServiceProvider {
 		// Binding thông thường
 		this.app.bind<Logger>('logger', ConsoleLogger);
 
-		// Singleton binding
-		this.app.singleton<Logger>('file.logger', () => new FileLogger('app.log'));
+		// Binding FileLogger (không phải singleton)
+		this.app.bind<Logger>('file.logger', () => new FileLogger('app.log'));
 
 		// Alias
 		this.app.alias('logger', 'log');
@@ -77,8 +78,8 @@ class LogServiceProvider extends ServiceProvider {
 
 class UserServiceProvider extends ServiceProvider {
 	register(): void {
-		// Singleton binding với dependency injection
-		this.app.singleton('user.service', () => {
+		// Binding UserService (không phải singleton)
+		this.app.bind('user.service', () => {
 			const logger = this.app.make<Logger>('logger');
 			return new UserService(logger);
 		});
@@ -90,10 +91,10 @@ class PaymentServiceProvider extends ServiceProvider {
 		// Contextual binding
 		this.app.when(OrderService).needs(PAYMENT_GATEWAY).give(PaypalGateway);
 
-		// Binding interface với class
+		// Binding PaymentGateway (không phải singleton)
 		this.app.bind<PaymentGateway>(PAYMENT_GATEWAY, StripeGateway);
 
-		this.app.singleton('order.service', () => {
+		this.app.bind('order.service', () => {
 			const paymentGateway = this.app.make<PaymentGateway>(PAYMENT_GATEWAY);
 			const logger = this.app.make<Logger>('logger');
 			return new OrderService(paymentGateway, logger);

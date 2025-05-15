@@ -1,8 +1,8 @@
-[**cosmos**](../../README.md)
+[**@khapu2906/cosmos**](../../README.md)
 
 ***
 
-[cosmos](../../modules.md) / [Application](../README.md) / Application
+[@khapu2906/cosmos](../../modules.md) / [Application](../README.md) / Application
 
 # Class: Application
 
@@ -36,7 +36,7 @@ lifecycle hooks for running code before and after the application is booted.
 
 > **addContextualBinding**(`concrete`, `abstract`, `implementation`): `void`
 
-Defined in: Container.ts:161
+Defined in: Container.ts:175
 
 Adds a contextual binding to the container.  This method is called by the
 `ContextualBindingBuilder` to register the binding.
@@ -45,21 +45,21 @@ Adds a contextual binding to the container.  This method is called by the
 
 ##### concrete
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The concrete identifier that represents the context in which the
                 binding should be applied.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to
                 bind a different implementation for in the specified context.
 
 ##### implementation
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The implementation (a constructor or a service factory function)
                      that should be used when resolving the abstract identifier in the
@@ -81,7 +81,7 @@ void
 
 > **alias**(`abstract`, `alias`): `void`
 
-Defined in: Container.ts:121
+Defined in: Container.ts:127
 
 Registers an alias for an abstract identifier. This allows you to refer to the same
 dependency using multiple names.
@@ -90,13 +90,13 @@ dependency using multiple names.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to alias.
 
 ##### alias
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The alias that you want to use to refer to the abstract identifier.
 
@@ -122,7 +122,7 @@ container.alias('my_service', 'myService');
 
 > **bind**\<`T`\>(`abstract`, `concrete`, `shared`): `void`
 
-Defined in: Container.ts:60
+Defined in: Container.ts:62
 
 Binds an abstract identifier to a concrete implementation or a service factory.
 This method allows you to define how an abstract dependency should be resolved.
@@ -139,7 +139,7 @@ The type of the dependency being bound.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)\<`T`\>
 
 The abstract identifier (usually a string or symbol) representing the dependency.
 
@@ -183,7 +183,7 @@ container.bind<MyService>('myService', MyService);
 
 > **boot**(): `void`
 
-Defined in: Application.ts:140
+Defined in: Application.ts:92
 
 Boots all service providers.
 
@@ -195,27 +195,13 @@ This method boots all registered service providers. It first runs the `bootingCa
 
 void
 
-#### Example
-
-```typescript
-const app = new Application();
-app.register(MyServiceProvider);
-app.booting(() => {
-  console.log('Application is booting...');
-});
-app.booted(() => {
-  console.log('Application has booted!');
-});
-app.boot(); // Boots all registered service providers.
-```
-
 ***
 
 ### booting()
 
 > **booting**(`callback`): `void`
 
-Defined in: Application.ts:196
+Defined in: Application.ts:131
 
 Registers a callback to run before booting.
 
@@ -235,23 +221,13 @@ The callback function to register.
 
 void
 
-#### Example
-
-```typescript
-const app = new Application();
-app.booting(() => {
-  console.log('Application is about to boot!');
-});
-app.boot(); // Executes the booting callback before booting providers.
-```
-
 ***
 
 ### bootProvider()
 
 > `protected` **bootProvider**(`provider`): `void`
 
-Defined in: Application.ts:117
+Defined in: Application.ts:82
 
 Boots a service provider.
 
@@ -271,30 +247,13 @@ The service provider to boot.
 
 void
 
-#### Example
-
-```typescript
-class MyServiceProvider extends ServiceProvider {
-  register() {
-    // ...
-  }
-  boot() {
-    console.log('MyServiceProvider is booting!');
-  }
-}
-
-const app = new Application();
-const provider = app.register(MyServiceProvider);
-app.boot(); // This will call MyServiceProvider's boot method.
-```
-
 ***
 
 ### flush()
 
 > **flush**(): `void`
 
-Defined in: Container.ts:387
+Defined in: Container.ts:436
 
 Clears all bindings, instances, and aliases from the container.  This effectively
 resets the container to its initial state.
@@ -319,9 +278,9 @@ container.flush(); // Clears the container
 
 ### getAlias()
 
-> **getAlias**(`abstract`): `string`
+> **getAlias**(`abstract`): [`Abstract`](../../Container/type-aliases/Abstract.md)
 
-Defined in: Container.ts:240
+Defined in: Container.ts:268
 
 Resolves an alias to its original abstract identifier.  If the given identifier is not
 an alias, it is returned as is.  This method recursively resolves aliases until it
@@ -331,13 +290,13 @@ reaches the original abstract identifier.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (or alias) that you want to resolve.
 
 #### Returns
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The original abstract identifier.
 
@@ -356,9 +315,9 @@ container.getAlias('my_service'); // Returns 'myService'
 
 ### getContextualConcrete()
 
-> **getContextualConcrete**(`abstract`, `concrete`): `null` \| `string`
+> **getContextualConcrete**(`abstract`, `concrete`): `null` \| [`Abstract`](../../Container/type-aliases/Abstract.md)\<`any`\>
 
-Defined in: Container.ts:178
+Defined in: Container.ts:192
 
 Retrieves the concrete implementation for an abstract identifier in a specific context.
 
@@ -366,21 +325,21 @@ Retrieves the concrete implementation for an abstract identifier in a specific c
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to
                 resolve.
 
 ##### concrete
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The concrete identifier that represents the context in which you are
                 resolving the abstract identifier.
 
 #### Returns
 
-`null` \| `string`
+`null` \| [`Abstract`](../../Container/type-aliases/Abstract.md)\<`any`\>
 
 The concrete implementation for the abstract identifier in the specified context,
          or `null` if no contextual binding is found.
@@ -395,7 +354,7 @@ The concrete implementation for the abstract identifier in the specified context
 
 > **has**(`abstract`): `boolean`
 
-Defined in: Container.ts:197
+Defined in: Container.ts:211
 
 Determines whether an abstract identifier has been registered with the container.
 This includes bindings, instances, and aliases.
@@ -404,7 +363,7 @@ This includes bindings, instances, and aliases.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to check.
 
@@ -430,7 +389,7 @@ container.has('myService'); // Returns true or false
 
 > **instance**\<`T`\>(`abstract`, `instance`): `void`
 
-Defined in: Container.ts:104
+Defined in: Container.ts:110
 
 Registers an existing instance with the container, associating it with an abstract identifier.
 This is useful when you have an instance that you want to be managed by the container but
@@ -448,7 +407,7 @@ The type of the instance being registered.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)\<`T`\>
 
 The abstract identifier (usually a string or symbol) representing the dependency.
 
@@ -481,7 +440,7 @@ container.instance<MyService>('myService', myServiceInstance);
 
 > **isBooted**(): `boolean`
 
-Defined in: Application.ts:175
+Defined in: Application.ts:119
 
 Determines whether the application has been booted.
 
@@ -493,22 +452,13 @@ This method returns a boolean indicating whether the application has been booted
 
 Whether the application has been booted.
 
-#### Example
-
-```typescript
-const app = new Application();
-console.log(app.isBooted()); // Output: false
-app.boot();
-console.log(app.isBooted()); // Output: true
-```
-
 ***
 
 ### isShared()
 
 > **isShared**(`abstract`): `boolean`
 
-Defined in: Container.ts:212
+Defined in: Container.ts:240
 
 Determines whether an abstract identifier is bound as a singleton.
 
@@ -516,7 +466,7 @@ Determines whether an abstract identifier is bound as a singleton.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to check.
 
@@ -540,9 +490,9 @@ container.isShared('myService'); // Returns true or false
 
 ### make()
 
-> **make**\<`T`\>(`abstract`, `parameters`): `T`
+> **make**\<`T`\>(`abstract`, `parameters`, `resolving`): `T`
 
-Defined in: Container.ts:263
+Defined in: Container.ts:291
 
 Resolves an abstract identifier from the container, creating an instance of the
 corresponding concrete implementation or retrieving an existing instance.
@@ -559,7 +509,7 @@ The type of the dependency being resolved.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)\<`T`\>
 
 The abstract identifier (usually a string or symbol) that you want to resolve.
 
@@ -569,6 +519,10 @@ The abstract identifier (usually a string or symbol) that you want to resolve.
 
 Optional. An array of parameters to pass to the constructor or factory
                   function when creating an instance.
+
+##### resolving
+
+[`Abstract`](../../Container/type-aliases/Abstract.md)\<`any`\>[] = `[]`
 
 #### Returns
 
@@ -592,7 +546,7 @@ const myService = container.make<MyService>('myService');
 
 > **onBooted**(`callback`): `void`
 
-Defined in: Application.ts:218
+Defined in: Application.ts:146
 
 Registers a callback to run after booting.
 
@@ -613,23 +567,13 @@ The callback function to register.
 
 void
 
-#### Example
-
-```typescript
-const app = new Application();
-app.onBooted(() => {
-  console.log('Application has finished booting!');
-});
-app.boot(); // Executes the booted callback after booting providers.
-```
-
 ***
 
 ### register()
 
 > **register**(`provider`): [`ServiceProvider`](../../ServiceProvider/classes/ServiceProvider.md)
 
-Defined in: Application.ts:63
+Defined in: Application.ts:44
 
 Registers a service provider with the application.
 
@@ -650,32 +594,13 @@ The service provider to register. It can be either a class constructor or an ins
 
 The registered service provider instance.
 
-#### Examples
-
-```typescript
-class MyServiceProvider extends ServiceProvider {
-  register() {
-    this.app.bind('myService', () => new MyService());
-  }
-}
-
-const app = new Application();
-const provider = app.register(MyServiceProvider); // Registering the provider
-```
-
-```typescript
-const app = new Application();
-const provider = new MyServiceProvider(app);
-app.register(provider); // Registering an instance
-```
-
 ***
 
 ### singleton()
 
 > **singleton**\<`T`\>(`abstract`, `concrete`): `void`
 
-Defined in: Container.ts:84
+Defined in: Container.ts:90
 
 Binds an abstract identifier to a concrete implementation as a singleton. This means
 that the container will only create one instance of the concrete implementation, and
@@ -693,7 +618,7 @@ The type of the dependency being bound.
 
 ##### abstract
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)\<`T`\>
 
 The abstract identifier (usually a string or symbol) representing the dependency.
 
@@ -730,7 +655,7 @@ container.singleton<MyService>('myService', MyService);
 
 > **when**(`concrete`): [`ContextualBindingBuilder`](../../Container/classes/ContextualBindingBuilder.md)
 
-Defined in: Container.ts:144
+Defined in: Container.ts:158
 
 Begins the definition of a contextual binding.  Contextual bindings allow you to
 specify different implementations for an abstract identifier based on the context
@@ -740,7 +665,7 @@ in which it is being resolved.
 
 ##### concrete
 
-`string`
+[`Abstract`](../../Container/type-aliases/Abstract.md)
 
 The concrete identifier that represents the context in which the
                 binding should be applied.

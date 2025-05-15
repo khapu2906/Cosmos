@@ -1,12 +1,12 @@
-[**cosmos**](../../README.md)
+[**@khapu2906/cosmos**](../../README.md)
 
 ***
 
-[cosmos](../../modules.md) / [Container](../README.md) / ContextualBindingBuilder
+[@khapu2906/cosmos](../../modules.md) / [Container](../README.md) / ContextualBindingBuilder
 
 # Class: ContextualBindingBuilder
 
-Defined in: Container.ts:400
+Defined in: Container.ts:449
 
 The `ContextualBindingBuilder` class is a helper class used to define contextual bindings
 within the container.  It allows you to specify different implementations for an abstract
@@ -18,7 +18,7 @@ identifier based on the context in which it is being resolved.
 
 > **new ContextualBindingBuilder**(`container`, `concrete`): `ContextualBindingBuilder`
 
-Defined in: Container.ts:408
+Defined in: Container.ts:457
 
 Creates a new `ContextualBindingBuilder` instance.
 
@@ -32,7 +32,7 @@ The dependency injection container.
 
 ##### concrete
 
-`string`
+[`Abstract`](../type-aliases/Abstract.md)
 
 The concrete identifier that represents the context in which the
                 binding should be applied.
@@ -47,7 +47,7 @@ The concrete identifier that represents the context in which the
 
 > **needs**(`abstract`): [`ContextualBindingNeedsBuilder`](ContextualBindingNeedsBuilder.md)
 
-Defined in: Container.ts:422
+Defined in: Container.ts:471
 
 Specifies the abstract identifier that you want to bind a different implementation
 for in the specified context.
@@ -56,7 +56,7 @@ for in the specified context.
 
 ##### abstract
 
-`string`
+[`Abstract`](../type-aliases/Abstract.md)
 
 The abstract identifier (usually a string or symbol) that you want to
                 bind a different implementation for in the specified context.

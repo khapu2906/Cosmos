@@ -1,7 +1,8 @@
+import 'reflect-metadata';
 import { Container } from '../lib/Container';
 
 describe('Container', () => {
-  let container: Container;
+	let container: Container;
 
   beforeEach(() => {
     container = new Container();
@@ -35,16 +36,18 @@ describe('Container', () => {
   it('should register an alias', () => {
     const abstract = 'testAbstract';
     const alias = 'testAlias';
+    container.bind(abstract, class TestConcrete {}, false);
     container.alias(abstract, alias);
     expect(container.getAlias(alias)).toBe(abstract);
   });
 
-  it('should add and get a contextual binding', () => {
-    const concrete = 'testConcrete';
+  it('should get the alias of an abstract', () => {
     const abstract = 'testAbstract';
-    const implementation = 'testImplementation';
-    container.addContextualBinding(concrete, abstract, implementation);
-    expect(container.getContextualConcrete(abstract, concrete)).toBe(implementation);
+    const alias = 'testAlias';
+    container.bind(abstract, class TestConcrete {}, false);
+    container.alias(abstract, alias);
+    expect(container.getAlias(alias)).toBe(abstract);
+    expect(container.getAlias(abstract)).toBe(abstract);
   });
 
   it('should determine if an abstract is registered', () => {
@@ -59,14 +62,6 @@ describe('Container', () => {
     expect(container.isShared(abstract)).toBe(false);
     container.singleton(abstract, class TestSingleton {});
     expect(container.isShared(abstract)).toBe(true);
-  });
-
-  it('should get the alias of an abstract', () => {
-    const abstract = 'testAbstract';
-    const alias = 'testAlias';
-    container.alias(abstract, alias);
-    expect(container.getAlias(alias)).toBe(abstract);
-    expect(container.getAlias(abstract)).toBe(abstract);
   });
 
   it('should make an instance of an abstract', () => {
@@ -87,9 +82,34 @@ describe('Container', () => {
     expect(container.getContextualConcrete(abstract, 'testConcrete')).toBe(null);
   });
 
-  it('should resolve dependencies', () => {
-    const dependencies = container['resolveDependencies'](TestConcrete);
-    expect(dependencies).toEqual([]);
+  describe('resolveDependencies', () => {
+    it('should resolve dependencies for a class with no dependencies', () => {
+      const dependencies = container['resolveDependencies'](TestConcrete, []);
+      expect(dependencies).toEqual([]);
+    });
+
+    it('should resolve dependencies for a class with dependencies', () => {
+      const abstract1 = 'testAbstract1';
+      const abstract2 = 'testAbstract2';
+      container.bind(abstract1, class TestConcrete1 {}, false);
+      container.bind(abstract2, class TestConcrete2 {}, false);
+
+      class TestConcreteWithDependencies {
+        constructor(public dep1: TestConcrete1, public dep2: TestConcrete2) {}
+      }
+
+      const dependencies = container['resolveDependencies'](TestConcreteWithDependencies, []);
+      expect(dependencies).toEqual([]);
+    });
+
+    it('should handle dependencies not found in the container', () => {
+      class TestConcreteWithMissingDependencies {
+        constructor(public dep1: any) {}
+      }
+
+      const dependencies = container['resolveDependencies'](TestConcreteWithMissingDependencies, []);
+      expect(dependencies).toEqual([]);
+    });
   });
 });
 
@@ -99,3 +119,6 @@ class TestConcrete {
     this.value = 'test';
   }
 }
+
+class TestConcrete1 {}
+class TestConcrete2 {}

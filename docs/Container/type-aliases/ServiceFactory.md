@@ -1,14 +1,14 @@
-[**cosmos**](../../README.md)
+[**@khapu2906/cosmos**](../../README.md)
 
 ***
 
-[cosmos](../../modules.md) / [Container](../README.md) / ServiceFactory
+[@khapu2906/cosmos](../../modules.md) / [Container](../README.md) / ServiceFactory
 
 # Type Alias: ServiceFactory()\<T\>
 
 > **ServiceFactory**\<`T`\> = (...`args`) => `T`
 
-Defined in: Container.ts:2
+Defined in: Container.ts:3
 
 ## Type Parameters
 

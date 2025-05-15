@@ -28,9 +28,9 @@ export class Application extends Container {
 	private serviceProviders: Array<ServiceProvider> = [];
 
 	/**
-	 * A map to track whether a service provider has been loaded, preventing duplicate loading.
+	 * A set to track whether a service provider has been loaded, preventing duplicate loading.
 	 */
-	private loadedProviders: Map<string, boolean> = new Map();
+	private loadedProviders: Set<string> = new Set();
 
 	/**
 	 * Registers a service provider with the application.
@@ -40,25 +40,6 @@ export class Application extends Container {
 	 *
 	 * @param {Constructor<ServiceProvider> | ServiceProvider} provider The service provider to register. It can be either a class constructor or an instance of a service provider.
 	 * @returns {ServiceProvider} The registered service provider instance.
-	 *
-	 * @example
-	 * ```typescript
-	 * class MyServiceProvider extends ServiceProvider {
-	 *   register() {
-	 *     this.app.bind('myService', () => new MyService());
-	 *   }
-	 * }
-	 *
-	 * const app = new Application();
-	 * const provider = app.register(MyServiceProvider); // Registering the provider
-	 * ```
-	 *
-	 * @example
-	 * ```typescript
-	 * const app = new Application();
-	 * const provider = new MyServiceProvider(app);
-	 * app.register(provider); // Registering an instance
-	 * ```
 	 */
 	register(provider: Constructor<ServiceProvider> | ServiceProvider): ServiceProvider {
 		// If the provider is a constructor, instantiate it
@@ -74,7 +55,7 @@ export class Application extends Container {
 		}
 
 		// Mark the provider as registered
-		this.loadedProviders.set(name, true);
+		this.loadedProviders.add(name);
 
 		// Register the provider's services
 		provider.register();
@@ -97,22 +78,6 @@ export class Application extends Container {
 	 *
 	 * @param {ServiceProvider} provider The service provider to boot.
 	 * @returns void
-	 *
-	 * @example
-	 * ```typescript
-	 * class MyServiceProvider extends ServiceProvider {
-	 *   register() {
-	 *     // ...
-	 *   }
-	 *   boot() {
-	 *     console.log('MyServiceProvider is booting!');
-	 *   }
-	 * }
-	 *
-	 * const app = new Application();
-	 * const provider = app.register(MyServiceProvider);
-	 * app.boot(); // This will call MyServiceProvider's boot method.
-	 * ```
 	 */
 	protected bootProvider(provider: ServiceProvider): void {
 		provider.boot();
@@ -123,19 +88,6 @@ export class Application extends Container {
 	 *
 	 * This method boots all registered service providers. It first runs the `bootingCallbacks` callbacks, then boots each service provider, and finally runs the `bootedCallbacks` callbacks.
 	 * @returns void
-	 *
-	 * @example
-	 * ```typescript
-	 * const app = new Application();
-	 * app.register(MyServiceProvider);
-	 * app.booting(() => {
-	 *   console.log('Application is booting...');
-	 * });
-	 * app.booted(() => {
-	 *   console.log('Application has booted!');
-	 * });
-	 * app.boot(); // Boots all registered service providers.
-	 * ```
 	 */
 	boot(): void {
 		if (this.booted) {
@@ -163,14 +115,6 @@ export class Application extends Container {
 	 * This method returns a boolean indicating whether the application has been booted.
 	 *
 	 * @returns {boolean} Whether the application has been booted.
-	 *
-	 * @example
-	 * ```typescript
-	 * const app = new Application();
-	 * console.log(app.isBooted()); // Output: false
-	 * app.boot();
-	 * console.log(app.isBooted()); // Output: true
-	 * ```
 	 */
 	isBooted(): boolean {
 		return this.booted;
@@ -183,18 +127,11 @@ export class Application extends Container {
 	 *
 	 * @param {Function} callback The callback function to register.
 	 * @returns void
-	 *
-	 * @example
-	 * ```typescript
-	 * const app = new Application();
-	 * app.booting(() => {
-	 *   console.log('Application is about to boot!');
-	 * });
-	 * app.boot(); // Executes the booting callback before booting providers.
-	 * ```
 	 */
 	booting(callback: Function): void {
-		this.bootingCallbacks.push(callback);
+		if (!this.bootingCallbacks.includes(callback)) {
+			this.bootingCallbacks.push(callback);
+		}
 	}
 
 	/**
@@ -205,18 +142,11 @@ export class Application extends Container {
 	 *
 	 * @param {Function} callback The callback function to register.
 	 * @returns void
-	 *
-	 * @example
-	 * ```typescript
-	 * const app = new Application();
-	 * app.onBooted(() => {
-	 *   console.log('Application has finished booting!');
-	 * });
-	 * app.boot(); // Executes the booted callback after booting providers.
-	 * ```
 	 */
 	onBooted(callback: Function): void {
-		this.bootedCallbacks.push(callback);
+		if (!this.bootedCallbacks.includes(callback)) {
+			this.bootedCallbacks.push(callback);
+		}
 
 		if (this.isBooted()) {
 			callback(this);
@@ -232,7 +162,7 @@ export class Application extends Container {
 	 * @returns void
 	 */
 	private fireAppCallbacks(callbacks: Array<Function>): void {
-		callbacks.forEach(callback => {
+		callbacks.forEach((callback: Function) => { // Thêm type cho callback
 			callback(this);
 		});
 	}

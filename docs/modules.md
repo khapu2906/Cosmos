@@ -1,8 +1,8 @@
-[**cosmos**](README.md)
+[**@khapu2906/cosmos**](README.md)
 
 ***
 
-# cosmos
+# @khapu2906/cosmos
 
 ## Modules
 
